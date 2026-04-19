@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>testCompany — test product</title>
+  <meta name="description" content="test product by testCompany — a simple information management system for teams." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --text:#eaf0ff;
+      --muted:#a9b6d3;
+      --brand:#7c5cff;
+      --brand2:#2ee6a6;
+      --line:rgba(255,255,255,.10);
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1000px 600px at 15% 15%, rgba(124,92,255,.25), transparent 55%),
+        radial-gradient(900px 500px at 85% 10%, rgba(46,230,166,.18), transparent 60%),
+        radial-gradient(900px 600px at 70% 90%, rgba(124,92,255,.12), transparent 60%),
+        var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:14px 18px; border:1px solid var(--line);
+      background:rgba(15,27,51,.55); backdrop-filter: blur(10px);
+      border-radius: 999px; box-shadow: var(--shadow);
+      position: sticky; top: 14px; z-index: 20;
+    }
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 25px rgba(124,92,255,.25);
+    }
+    .brand strong{font-weight:700; letter-spacing:.2px}
+    .nav .links{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    .nav .links a{
+      text-decoration:none; color:var(--muted);
+      padding:8px 10px; border-radius: 10px;
+    }
+    .nav .links a:hover{color:var(--text); background:rgba(255,255,255,.06)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius: 12px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    .btn.primary{
+      border: none;
+      background: linear-gradient(135deg, var(--brand), #4a7dff);
+    }
+    .btn.primary:hover{filter: brightness(1.05)}
+    .btn:hover{transform: translateY(-1px)}
+    .hero{
+      padding:56px 0 28px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:24px;
+      align-items: center;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; padding-top:34px}
+      .nav{border-radius: 18px}
+    }
+    h1{
+      font-size: clamp(34px, 4vw, 54px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      letter-spacing: -.6px;
+    }
+    .sub{
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 62ch;
+      margin: 0 0 20px;
+    }
+    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin: 18px 0 0}
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:8px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(15,27,51,.55);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .form{
+      display:grid; gap:10px; margin-top: 8px;
+    }
+    input, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline:none;
+    }
+    input::placeholder, textarea::placeholder{color: rgba(234,240,255,.45)}
+    textarea{min-height: 90px; resize: vertical}
+    .small{font-size:12px; color: var(--muted); margin: 10px 0 0}
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 22px 0 0;
+    }
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
+    .feature h3{margin: 0 0 8px; font-size: 16px}
+    .feature p{margin:0; color: var(--muted)}
+    .section{padding: 34px 0}
+    .section h2{margin:0 0 10px; font-size: 26px}
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 900px){ .split{grid-template-columns:1fr} }
+    .faq details{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding: 12px 14px;
+      border-radius: 14px;
+    }
+    .faq summary{cursor:pointer; font-weight:600}
+    .faq p{margin:10px 0 0; color: var(--muted)}
+    footer{
+      padding: 30px 0 46px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 18px;
+    }
+    .footer-row{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="nav" aria-label="Top navigation">
+      <a class="brand" href="#">
+        <span class="logo" aria-hidden="true"></span>
+        <strong>testCompany</strong>
+      </a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a class="btn primary" href="#contact">Request a demo</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Hero">
+        <div>
+          <h1>test product keeps your team’s information in one place.</h1>
+          <p class="sub">
+            Built by testCompany: organize knowledge, track work, and collaborate faster—without juggling tools.
+          </p>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 16px;">
+            <a class="btn primary" href="#contact">Get started</a>
+            <a class="btn" href="#features">See features</a>
+          </div>
+
+          <div class="pill-row" aria-label="Key highlights">
+            <span class="pill">Knowledge hub</span>
+            <span class="pill">Task & project tracking</span>
+            <span class="pill">Team collaboration</span>
+            <span class="pill">AI-ready workflows</span>
+          </div>
+        </div>
+
+        <aside class="card" id="contact" aria-label="Contact form">
+          <h2 style="margin:0 0 8px; font-size:20px;">Request a demo</h2>
+          <p style="margin:0 0 12px; color:var(--muted); font-size:14px;">
+            This is a static template form (connect it to email/CRM later).
+          </p>
+
+          <form class="form" onsubmit="event.preventDefault(); alert('Thanks! This is a static demo form.');">
+            <input name="name" placeholder="Full name" autocomplete="name" required />
+            <input name="email" type="email" placeholder="Work email" autocomplete="email" required />
+            <input name="company" placeholder="Company / team" autocomplete="organization" />
+            <textarea name="message" placeholder="What do you want test product to organize (docs, projects, meetings, etc.)?"></textarea>
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+
+          <p class="small">By submitting, you agree to be contacted about this demo.</p>
+        </aside>
+      </section>
+
+      <section class="section" id="features" aria-label="Features">
+        <h2>Features</h2>
+        <p style="margin:0 0 16px; color:var(--muted); max-width: 70ch;">
+          test product is designed to keep documentation, decisions, and execution connected.
+        </p>
+
+        <div class="grid3">
+          <div class="card feature">
+            <h3>Centralized knowledge</h3>
+            <p>Store docs, meeting notes, and research in one searchable workspace.</p>
+          </div>
+          <div class="card feature">
+            <h3>Projects + tasks</h3>
+            <p>Track priorities, deadlines, and ownership with simple status views.</p>
+          </div>
+          <div class="card feature">
+            <h3>Collaboration built in</h3>
+            <p>Comment, mention teammates, and keep decisions tied to the work.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="how" aria-label="How it works">
+        <h2>How it works</h2>
+        <div class="split">
+          <div class="card">
+            <h3 style="margin:0 0 8px;">1) Capture</h3>
+            <p style="margin:0; color:var(--muted);">Add notes, requirements, and meeting outputs as they happen.</p>
+          </div>
+          <div class="card">
+            <h3 style="margin:0 0 8px;">2) Organize</h3>
+            <p style="margin:0; color:var(--muted);">Connect pages and topics into a shared system.</p>
+          </div>
+          <div class="card">
+            <h3 style="margin:0 0 8px;">3) Execute</h3>
+            <p style="margin:0; color:var(--muted);">Turn information into tasks and track progress end-to-end.</p>
+          </div>
+          <div class="card">
+            <h3 style="margin:0 0 8px;">4) Improve</h3>
+            <p style="margin:0; color:var(--muted);">Add AI-assisted summaries and faster drafting when ready.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq" id="faq" aria-label="FAQ">
+        <h2>FAQ</h2>
+        <div style="display:grid; gap:12px;">
+          <details>
+            <summary>Can I take a screenshot of this as a “live” page?</summary>
+            <p>Yes—publish it with a free host (GitHub Pages / Netlify) to get a link you can open and screenshot.</p>
+          </details>
+          <details>
+            <summary>Is the form functional?</summary>
+            <p>Not yet. It’s a static demo (shows an alert). You can connect it to a form backend later.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer aria-label="Footer">
+      <div class="footer-row">
+        <div>© <span id="year"></span> testCompany. All rights reserved.</div>
+        <div>
+          <a href="#" style="text-decoration:none; color:var(--muted);">Privacy</a>
+          <span style="opacity:.35;"> • </span>
+          <a href="#" style="text-decoration:none; color:var(--muted);">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
